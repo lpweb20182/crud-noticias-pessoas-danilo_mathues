@@ -2,6 +2,12 @@
   <a routerLink="/admin/noticias/cadastrar" class="btn btn-primary">Cadastrar</a>
 </div>
 <h1>Notícias</h1>
+<div *ngIf="salvar_ok" class="alert alert-success">
+  Noticia excluida com sucesso!
+</div>
+<div *ngIf="salvar_erro" class="alert alert-warning">
+  Não foi possível excluir a noticia. Tente novamente dentro de instantes.
+</div>
 <hr>
 <table class="table mt-1 table-bordered table-hover table-striped">
   <thead>
@@ -16,7 +22,13 @@
         {{noticia.id}}
       </td>
       <td>
-        {{noticia.titulo}}
+        <div>
+          {{noticia.titulo}}
+          <button class="btn btn-danger float-right" (click)="delete(noticia)">
+            Excluir
+          </button>
+          <a class="btn btn-primary float-right" [routerLink]="['/admin/noticias/alterar', noticia.id]">Editar</a>
+        </div>
       </td>
     </tr>
   </tbody>

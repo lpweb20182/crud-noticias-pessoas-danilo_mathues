@@ -2,22 +2,22 @@
 <br>
 <form class="mt-1" #cadastro="ngForm" (submit)="salvar()">
   <div *ngIf="salvar_ok" class="alert alert-success">
-    Notícia salva com sucesso!
+    Notícia alterada com sucesso!
   </div>
   <div *ngIf="salvar_erro" class="alert alert-warning">
-    Não foi possível salvar a notícia. Tente novamente dentro de instantes.
+    Não foi possível alterar a notícia. Tente novamente dentro de instantes.
   </div>
   <div class="form-group">
     <label for="titulo">Título</label>
-    <input type="text" class="form-control" name="titulo" id="titulo" [(ngModel)]="titulo" required>
+    <input type="text" class="form-control" name="titulo" id="titulo" [(ngModel)]="titulo" value="titulo" required>
   </div>
   <div class="form-group">
     <label for="resumo">Resumo</label>
-    <textarea name="resumo" class="form-control" id="resumo" [(ngModel)]="resumo" required></textarea>
+    <textarea name="resumo" class="form-control" id="resumo" [(ngModel)]="resumo" value="resumo" required></textarea>
   </div>
   <div class="form-group">
     <label for="conteudo">Conteúdo</label>
-    <textarea name="conteudo" class="form-control" id="conteudo" [(ngModel)]="conteudo" required></textarea>
+    <textarea name="conteudo" class="form-control" id="conteudo" [(ngModel)]="conteudo" value="conteudo" required></textarea>
   </div>
   <div class="form-group">
     <label>Autor</label>
@@ -31,21 +31,16 @@
   </div>
   <div class="form-group form-check">
     <label>
-    <input type="checkbox" name="publicada" class="form-check-input" [(ngModel)]="publicada">
+    <input type="checkbox" name="publicada" class="form-check-input" [(ngModel)]="publicada" value="publicada">
     Publicada?
     </label>
   </div>
   <div class="form-group form-check">
       <label>
-      <input type="checkbox" name="destaque" class="form-check-input" [(ngModel)]="destaque">
+      <input type="checkbox" name="destaque" class="form-check-input" [(ngModel)]="destaque" value="destaque">
       Destaque?
       </label>
-    </div> 
-  <div class="custom-file">
-      <input type="file" name="foto" class="custom-file-input" (change)="onFileSelected($event)" lang="pt-br">
-      <label class="custom-file-label" >Selecionar o Arquivo</label>
-  </div>
-  <br><br>
+    </div>  
   <div>
     <button class="btn btn-primary">Salvar</button>
   </div>
