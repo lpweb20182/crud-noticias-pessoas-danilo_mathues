@@ -94,25 +94,26 @@ export class NoticiasService {
       );
   }
 
-  public salvar_imagem(imagem){
+ /** public salvar_imagem(imagem){
     const options = this.getHeaders();
     console.log(imagem)
     const url = this.API_URL_MIDIA + '1' + '/';
     return this.http.post(url, imagem, options);
 
-  }
+  }**/
 
-  public salvar(titulo: string, resumo: string, conteudo: string, autor: any, data: string, publicada: boolean, destaque: boolean, imagen:any) {
+  public salvar(titulo: string, resumo: string, conteudo: string, autor: any, data: string, publicada: boolean, destaque: boolean) {
     const options = this.getHeaders();
     const noticia = {
       titulo: titulo,
       resumo: resumo,
       conteudo: conteudo,
-      autor: autor,
+      autor: {
+        id: autor
+      },
       data: data,
       publicada: publicada,
-      destaque: destaque,
-      imagem:imagen
+      destaque: destaque
     };
     return this.http.post(this.API_URL, noticia, options);
   }

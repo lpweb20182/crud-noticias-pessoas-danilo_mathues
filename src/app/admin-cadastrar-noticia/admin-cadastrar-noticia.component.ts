@@ -26,17 +26,15 @@ export class AdminCadastrarNoticiaComponent implements OnInit {
   ngOnInit() {
     this.autores = this.autores_service.todos();
   }
-  onFileSelected(event){
+  /**onFileSelected(event){
     this.imagem = event.target.files[0];
 
-  }
+  }**/
 
   salvar() {
-    this.noticias_service.salvar_imagem(this.imagem).subscribe()
-    /**let autor_obj = null;
-    this.autores_service.encontrar(this.autor).subscribe(
-      autor =>{ autor_obj = autor
-      this.noticias_service.salvar(this.titulo, this.resumo, this.conteudo, autor_obj ,this.data, this.publicada, this.destaque, imagem).subscribe(
+    //this.noticias_service.salvar_imagem(this.imagem).subscribe()
+
+      this.noticias_service.salvar(this.titulo, this.resumo, this.conteudo, this.autor ,this.data, this.publicada, this.destaque).subscribe(
         noticia => {
           this.salvar_ok = true;
         },
@@ -44,8 +42,7 @@ export class AdminCadastrarNoticiaComponent implements OnInit {
           console.log(erro);
           this.salvar_erro = true;
         }
-      )
-      }
-      )**/
+      );
+
   }
 }
